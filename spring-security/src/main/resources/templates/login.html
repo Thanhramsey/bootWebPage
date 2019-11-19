@@ -1,20 +1,173 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8" />
-<title>Login Page</title>
-<link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+	<meta charset="UTF-8">
+	<title>Landing Page</title>
+	<link rel="stylesheet" href="../css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="../css/myCss.css"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+	<style>
+		html {
+			scroll-behavior: smooth;
+		}
+	</style>
 </head>
 <body>
-	<div class="main-content">
-		<p th:if="${param.error}" class="error">Invalid email or password</p>
-		<p th:if="${param.logout}" class="success">You have been logged out</p>
-		<h3>Login to continue</h3>
-		<form th:action="@{/login}" method="POST">
-			<input type="text" name="email" placeholder="Your email" /><br />
-			<input type="password" name="password" placeholder="Your password" /><br />
-			<button type="submit">Login</button> <br />
+<header>
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<a class="navbar-brand" href="#">
+			<img src="../images/tenor.gif" style="width:50px;height: 45px;border-radius: 50%">
+		</a>
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+					Menu
+				</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="#">Áo</a>
+					<a class="dropdown-item" href="#">Quần</a>
+					<a class="dropdown-item" href="#">Mũ</a>
+				</div>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Contact us</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">More Information</a>
+			</li>
+		</ul>
+		<ul class="navbar-nav  ml-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="#registerForm">Register</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Sign up</a>
+			</li>
+			<li class="nav-item" style="display: none">
+				<a class="nav-link" href="#">Log out</a>
+			</li>
+		</ul>
+	</nav>
+</header>
+<main>
+	<div class="container-fluid" style="padding: 10% 25% 10% 25%">
+		<form action="/userLogin" class="needs-validation" novalidate id="registerForm" style="padding: 5% 20% 5% 20% ; background: #343a40!important;margin-bottom: 20px;border-radius:1% " method="post">
+			<div class="test" style="text-align: center;padding-top: 15px;font-family:sans-serif ">
+				<h1>Log in</h1>
+			</div>
+			<div class="form-group">
+				<label for="email" style="color: white">Email address:</label>
+				<input type="email" class="form-control" id="email" name="email" required>
+				<div class="invalid-feedback">Please fill out this field.</div>
+			</div>
+			<div class="form-group">
+				<label for="pwd" style="color: white">Password:</label>
+				<input type="password" class="form-control" id="pwd" name="password" required>
+				<div class="invalid-feedbavack">Please fill out this field.</div>
+			</div>
+			<button type="submit" class="btn btn-primary">Log In</button>
 		</form>
 	</div>
+</main>
+<footer class="page-footer font-small indigo bg-dark">
+
+	<!-- Footer Links -->
+	<div class="container text-center text-md-left">
+		<!-- Grid row -->
+		<div class="row" >
+			<!-- Grid column -->
+			<div class="col-md-3 mx-auto" style="color: white">
+				<!-- Links -->
+				<h5 class="font-weight-bold text-uppercase mt-3 mb-4">Giới thiệu</h5>
+
+				<p>MTP trở thành một thương hiệu thời trang hỗ trợ giới trẻ thể hiện sở thích và phong cách một cách độc đáo bậc nhất tại Việt Nam</p>
+
+			</div>
+			<hr class="clearfix w-100 d-md-none">
+			<div class="col-md-3 mx-auto" style="color: white">
+
+				<!-- Links -->
+				<h5 class="font-weight-bold text-uppercase mt-3 mb-4">Liên kết</h5>
+
+				<ul class="list-unstyled" >
+					<li>
+						<a href="#!"style="color: white" >Tìm kiếm</a>
+					</li>
+					<li>
+						<a href="#!" style="color: white">Giới thiệu</a>
+					</li>
+				</ul>
+			</div>
+			<hr class="clearfix w-100 d-md-none">
+			<div class="col-md-3 mx-auto" style="color: white">
+
+				<h5 class="font-weight-bold text-uppercase mt-3 mb-4">Thông tin liên hệ</h5>
+
+				<ul class="list-unstyled">
+					<li>
+						<a href="#!" style="color: white">Kí túc xá khu B đhqg</a>
+					</li>
+					<li>
+						<a href="#!" style="color: white">096 399 08 12</a>
+					</li>
+					<li>
+						<a href="#!" style="color: white">teeworld.fashion@gmail.com</a>
+					</li>
+				</ul>
+
+			</div>
+			<hr class="clearfix w-100 d-md-none">
+			<div class="col-md-3 mx-auto" style="color: white">
+				<h5 class="font-weight-bold text-uppercase mt-3 mb-4">Fanpage</h5>
+
+				<ul class="list-unstyled">
+					<li>
+						<a href="#!" style="color: white">Facebook.com</a>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+	<!-- Copyright -->
+	<div class="footer-copyright text-center py-3" style="color: white">© 2018 Copyright
+	</div>
+	<!-- Copyright -->
+
+</footer>
+</body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="../js/carousel.js"></script>
+<script src="../js/verification.js"></script>
+<script src="../js/bootstrap.js"></script>
+<script src="../js/bootstrap.bundle.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/jquery-3.2.1.slim.min.js"></script>
+<script src="../js/tooltip.min.js"></script>
+<script>
+	// Disable form submissions if there are invalid fields
+	(function() {
+		'use strict';
+		window.addEventListener('load', function() {
+			// Get the forms we want to add validation styles to
+			var forms = document.getElementsByClassName('needs-validation');
+			// Loop over them and prevent submission
+			var validation = Array.prototype.filter.call(forms, function(form) {
+				form.addEventListener('submit', function(event) {
+					if (form.checkValidity() === false) {
+						event.preventDefault();
+						event.stopPropagation();
+					}
+					form.classList.add('was-validated');
+				}, false);
+			});
+		}, false);
+	})();
+</script>
 </body>
 </html>

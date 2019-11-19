@@ -40,10 +40,10 @@
             </ul>
             <ul class="navbar-nav  ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#registerForm">Register</a>
+                    <a class="nav-link" href="/addPerson">Register</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sign up</a>
+                    <a class="nav-link" href="/userLogin">Sign up</a>
                 </li>
                 <li class="nav-item" style="display: none">
                     <a class="nav-link" href="#">Log out</a>
@@ -111,78 +111,57 @@
                     <img id="img12"  class="d-block w-100 form-group" src="../images/clothes/áo/black/yugi.webp" alt="goku" style="height: 30%;border-radius: 5%;">
                 </div>
             </div>
-<!--            <div class="row" style="padding: 20px 10% 0 10%; height: 300px">-->
-<!--                <div class="col-lg-3" >-->
-<!--                    <img id="img5" class="d-block w-100" src="../images/clothes/áo/black/harry_potter.png" alt="basic" style="height: 90%;border-radius: 5%;">-->
-<!--                </div>-->
-<!--                <div class="col-lg-3">-->
-<!--                    <img id="img6" class="d-block w-100" src="../images/clothes/áo/black/kakashi.jpg" alt="chaine" style="height: 90%;border-radius: 5%;">-->
-<!--                </div>-->
-<!--                <div class="col-lg-3" >-->
-<!--                    <img id="img7" class="d-block w-100" src="../images/clothes/áo/black/naruto.webp" alt="doraemon" style="height: 90%;border-radius: 5%;">-->
-<!--                </div>-->
-<!--                <div class="col-lg-3" >-->
-<!--                    <img id="img8"  class="d-block w-100" src="../images/clothes/áo/black/luffy.webp" alt="goku" style="height: 90%;border-radius: 5%;">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="row" style="padding: 20px 10% 0 10%; height: 300px">-->
-<!--                <div class="col-lg-3" >-->
-<!--                    <img id="img9" class="d-block w-100" src="../images/clothes/áo/black/pain.jpg" alt="basic" style="height: 90%;border-radius: 5%;">-->
-<!--                </div>-->
-<!--                <div class="col-lg-3">-->
-<!--                    <img id="img10" class="d-block w-100" src="../images/clothes/áo/black/sasuke.png" alt="chaine" style="height: 90%;border-radius: 5%;">-->
-<!--                </div>-->
-<!--                <div class="col-lg-3" >-->
-<!--                    <img id="img11" class="d-block w-100" src="../images/clothes/áo/black/thanos.png" alt="doraemon" style="height: 90%;border-radius: 5%;">-->
-<!--                </div>-->
-<!--                <div class="col-lg-3" >-->
-<!--                    <img id="img12"  class="d-block w-100" src="../images/clothes/áo/black/yugi.webp" alt="goku" style="height: 90%;border-radius: 5%;">-->
-<!--                </div>-->
-<!--            </div>-->
         </div>
-
 <!--        form register-->
         <div class="container-fluid" style="padding: 0 15% 0 15%">
-        <form  th:action="@{/addPerson}"  id="registerForm" style="padding: 2% 20% 2% 20% ; background: #343a40!important;margin-bottom: 20px;border-radius:1% " method="post">
+            <form action="/addPerson" class="needs-validation" novalidate id="registerForm" style="padding: 2% 20% 2% 20% ; background: #343a40!important;margin-bottom: 20px;border-radius:1% " method="post">
+                <div class="form-group" style="text-align: center" >
+                    <h5 th:text="${messeage}" th:unless="${messeage == null}" style="color: white"  id="noteRegister">[...]</h5>
+                </div>
+                <div class="form-group">
+                    <label for="email" style="color: white">Email address:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="form-group">
+                    <label for="pwd" style="color: white">Password:</label>
+                    <input type="password" class="form-control" id="pwd" name="password" required>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="form-group">
+                    <label for="firstname" style="color: white">First Name:</label>
+                    <input type="text" class="form-control" id="firstname" name="firstname" required>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="form-group">
+                    <label for="lastname" style="color: white">Last Name:</label>
+                    <input type="text" class="form-control" id="lastname" name="lastname" required>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="form-group">
+                    <label for="dayOfBirth" style="color: white">Day Of Birth:</label>
+                    <input type="date" class="form-control" id="dayOfBirth" name="dayOfBirth" required>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="form-group">
+                    <label for="phone" style="color: white">Phone:</label>
+                    <input type="text" class="form-control" id="phone" name="phone" required>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="form-group">
+                    <label for="address" style="color: white">Address:</label>
+                    <input type="text" class="form-control" id="address" name="address" required>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label" style="color: white">
+                        <input class="form-check-input" type="checkbox" name="remember" required> I agree to creat account
+                        <div class="invalid-feedback">Check this checkbox to continue.</div>
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
 
-            <div class="form-group" style="text-align: center">
-                <h5 th:text="${messeage}" th:unless="${messeage == null}" style="color: white"  id="noteRegister">[...]</h5>
-            </div>
-            <div class="form-group">
-                <label for="email" style="color: white">Email address:</label>
-                <input type="email" class="form-control" id="email" name="email" th:name="email">
-            </div>
-            <div class="form-group">
-                <label for="pwd" style="color: white">Password:</label>
-                <input type="password" class="form-control" id="pwd" name="password" th:name="password">
-            </div>
-            <div class="form-group">
-                <label for="firstname" style="color: white">First Name:</label>
-                <input type="text" class="form-control" id="firstname" name="firstname" th:name="firstname">
-            </div>
-            <div class="form-group">
-                <label for="lastname" style="color: white">Last Name:</label>
-                <input type="text" class="form-control" id="lastname" name="lastname" th:name="lastname">
-            </div>
-            <div class="form-group">
-                <label for="dayOfBirth" style="color: white">Day Of Birth:</label>
-                <input type="date" class="form-control" id="dayOfBirth" name="dayOfBirth" th:name="dateOfBirth">
-            </div>
-            <div class="form-group">
-                <label for="phone" style="color: white">Phone:</label>
-                <input type="text" class="form-control" id="phone" name="phone" th:name="phone">
-            </div>
-            <div class="form-group">
-                <label for="address" style="color: white">Address:</label>
-                <input type="text" class="form-control" id="address" name="address" th:name="address">
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox"> Remember me
-                </label>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
         </div>
     </main>
 <!--footer-->
@@ -265,4 +244,24 @@
 <script src="../js/popper.min.js"></script>
 <script src="../js/jquery-3.2.1.slim.min.js"></script>
 <script src="../js/tooltip.min.js"></script>
+<script>
+    // Disable form submissions if there are invalid fields
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Get the forms we want to add validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
 </html>

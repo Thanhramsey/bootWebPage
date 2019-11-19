@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.Null;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,7 @@ public class MainController {
 		return "index";
 	}
 
-	@RequestMapping(value = { "/addPerson" },method={RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value = { "/addPerson"},method={RequestMethod.GET,RequestMethod.POST})
 	public String index(
 			@RequestParam(value = "firstname", required = false) String firstname,
 			@RequestParam(value = "lastname", required = false) String lastname,
@@ -33,6 +34,10 @@ public class MainController {
 			@RequestParam(value = "phone", required = false) String phone,
 			@RequestParam(value = "dateOfBirth", required = false) String dateOfBirth,
 			Model model) {
+
+		if(firstname==null&& lastname==null && email==null&&password==null&&address==null&&phone==null&&dateOfBirth==null){
+			return "index";
+		}
 
 		if(!(email == ""||email == null)){
 			List<User> listUsers = (List<User>) userRepository.findAll();
@@ -73,6 +78,6 @@ public class MainController {
 		}
 		String messeage = "Creat account successful!";
 		model.addAttribute("messeage", messeage);
-		return "index";
+		return "login";
 	}
 }
