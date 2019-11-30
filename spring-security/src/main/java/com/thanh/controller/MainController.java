@@ -24,7 +24,12 @@ public class MainController {
 		return "index";
 	}
 
-	@RequestMapping(value = { "/addPerson"},method={RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value = { "/addPerson"},method={RequestMethod.GET})
+	public String getIndex(){
+		return "register";
+	}
+
+	@RequestMapping(value = { "/addPerson"},method={RequestMethod.POST})
 	public String index(
 			@RequestParam(value = "firstname", required = false) String firstname,
 			@RequestParam(value = "lastname", required = false) String lastname,
@@ -35,9 +40,6 @@ public class MainController {
 			@RequestParam(value = "dateOfBirth", required = false) String dateOfBirth,
 			Model model) {
 
-		if(firstname==null&& lastname==null && email==null&&password==null&&address==null&&phone==null&&dateOfBirth==null){
-			return "index";
-		}
 
 		if(!(email == ""||email == null)){
 			List<User> listUsers = (List<User>) userRepository.findAll();
@@ -45,7 +47,7 @@ public class MainController {
 				if(user.getEmail().equals(email)){
 					String messeage = "This email is already exist!";
 					model.addAttribute("messeage", messeage);
-					return "index";
+					return "register";
 				}
 			}
 		}
